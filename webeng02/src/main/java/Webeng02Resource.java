@@ -3,9 +3,7 @@
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -69,8 +67,18 @@ public class Webeng02Resource extends HttpServlet {
 				resp+=d.toString() + "\n---------------------------------\n";
 			}
 		}
-		
-		
+
+		// List headers
+		resp += "\n---- headers ----\n";
+
+		// Get response header names
+		final Enumeration<String> headerNames = request.getHeaderNames();
+
+		while(headerNames.hasMoreElements()) {
+			final String headerName = headerNames.nextElement();
+			resp += headerName + ": " + request.getHeader(headerName) + "\n";
+		}
+
 		response.getWriter().append(resp);
 
 		
