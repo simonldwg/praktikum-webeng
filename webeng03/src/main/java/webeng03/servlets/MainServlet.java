@@ -3,6 +3,7 @@ package webeng03.servlets;
 import java.io.IOException;
 
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -27,7 +28,9 @@ public class MainServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		response.addHeader("Content-Type", "text/html");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/Header");
+
 		String content = ""
 			+ "<!doctype html>\r\n"
 			+ "<html>\r\n"
@@ -36,8 +39,12 @@ public class MainServlet extends HttpServlet {
 				+ "<meta name=\"description\" content=\"Webeng Praktikum 3\">\r\n"
 				+ "<meta name=\"keywords\" content=\"webeng\">\r\n"
 				+ "</head>\r\n"
-			+ "<body>\r\n"
-				+ "<main>"
+			+ "<body>\r\n";
+		response.getWriter().append(content);
+
+		dispatcher.include(request, response);
+
+		content = "<main>"
 					+ "<h1>Willkommen</h1>"
 					+ "Dies ist eine Webanwendung"
 				+ "</main>"

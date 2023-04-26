@@ -28,9 +28,8 @@ public class HeaderServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session=request.getSession(false);  
-		Profile p = (session != null) ? (Profile)session.getAttribute("profile") : null;  
-        
+		HttpSession session=request.getSession(false);
+		Profile p = (session != null) ? (Profile)session.getAttribute("profile") : null;
 		
 		String content = ""
 			+ "<header>"		

@@ -1,6 +1,8 @@
 package webeng03.servlets;
 
 import java.io.IOException;
+
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -32,7 +34,9 @@ public class ProfileServlet extends HttpServlet {
         Profile p = (Profile)session.getAttribute("profile");
         if(p==null)
         	response.sendRedirect(request.getContextPath()+"/");
-		
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/Header");
+
 		String content = ""
 				+ "<!doctype html>\r\n"
 				+ "<html>\r\n"
@@ -41,8 +45,12 @@ public class ProfileServlet extends HttpServlet {
 					+ "<meta name=\"description\" content=\"Webeng Praktikum 3\">\r\n"
 					+ "<meta name=\"keywords\" content=\"webeng\">\r\n"	
 				+ "</head>\r\n"
-				+ "<body>\r\n"
-					+ "<main>"
+				+ "<body>\r\n";
+
+		response.getWriter().append(content);
+
+		dispatcher.include(request, response);
+		content =		"<main>"
 						+ "<h1>Profil</h1>"
 						+ "name: " + p.getName() + "</br>"
 						+ "LoginCount: " + String.valueOf(p.getLoginCounter()) + "</br>"
