@@ -71,7 +71,7 @@ public class Webeng02Resource extends HttpServlet {
 		// List headers
 		resp += "\n---- headers ----\n";
 
-		// Get response header names
+		// Get request header names
 		final Enumeration<String> headerNames = request.getHeaderNames();
 
 		while(headerNames.hasMoreElements()) {
