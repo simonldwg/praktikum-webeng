@@ -65,7 +65,7 @@ public class Auth extends HttpServlet {
 
 		session.setAttribute("profile", new Profile(username, ++loginCounter));
 
-		final Cookie loginCounterCookie = new Cookie("loginCounter^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^", Integer.toString(loginCounter));
+		final Cookie loginCounterCookie = new Cookie("loginCounter", Integer.toString(loginCounter));
 		loginCounterCookie.setMaxAge(60*60*24*365*10);
 		response.addCookie(loginCounterCookie);
 
