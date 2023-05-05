@@ -6,6 +6,7 @@ include 'helloJava'
 include 'helloServlet'
 include 'webeng02'
 include 'webeng03'
+include 'webeng04'
 
 
 // to create new subproject just add another 
