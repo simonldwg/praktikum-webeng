@@ -7,6 +7,7 @@ include 'helloServlet'
 include 'webeng02'
 include 'webeng03'
 include 'webeng04'
+include 'webeng05'
 
 
 // to create new subproject just add another 

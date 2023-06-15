@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app
+	xmlns="https://jakarta.ee/xml/ns/jakartaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+	version="5.0">
+	<display-name>webeng05</display-name>
+
+ 	<servlet>
+		<servlet-name>H2Console</servlet-name>
+		<servlet-class>org.h2.server.web.JakartaWebServlet</servlet-class>
+		<init-param> 
+			<param-name>webAllowOthers</param-name> 
+			<param-value></param-value> 
+		</init-param>  
+		<init-param> 
+			<param-name>trace</param-name> 
+			<param-value></param-value> 
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>H2Console</servlet-name>
+		<url-pattern>/console/*</url-pattern>
+	</servlet-mapping>
+
+	<session-config>
+		<session-timeout>1</session-timeout>
+	</session-config>
+	
+	<listener>
+	    <listener-class>org.h2.server.web.JakartaDbStarter</listener-class>
+	</listener>
+
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<context-param>
+		<param-name>dataSourceType</param-name>
+		<param-value>ORM</param-value>    <!-- values: LIST, SQL, ORM -->
+	</context-param>
+	
+	<context-param>
+		<param-name>db.driver</param-name>
+		<param-value>org.h2.Driver</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>db.url</param-name>
+		<param-value>jdbc:h2:./h2/db</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>db.user</param-name>
+		<param-value>sa</param-value>
+	</context-param>
+	<context-param>
+		<param-name>db.password</param-name>
+		<param-value>sa</param-value>
+	</context-param>
+
+</web-app>
