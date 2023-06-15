@@ -1,0 +1,49 @@
+dependencies {
+	
+	providedCompile 'jakarta.servlet:jakarta.servlet-api:6.0.0'	  
+
+	// JSF API & IMPL
+	implementation 'jakarta.faces:jakarta.faces-api:3.0.0'
+	// https://mvnrepository.com/artifact/org.glassfish/jakarta.faces
+	implementation 'org.glassfish:jakarta.faces:3.0.4'
+
+	// CDI Implementation	
+	// https://mvnrepository.com/artifact/org.jboss.weld.servlet/weld-servlet-core
+	implementation 'org.jboss.weld.servlet:weld-servlet-core:5.1.0.Final'
+
+
+}
+
+gretty {
+  	contextPath = '/helloJSF'	
+  	fastReload = true
+	jvmArgs = [
+  		//'--add-opens=java.base/java.lang=ALL-UNNAMED',
+  		 //'-–illegal-access=warn'
+  		
+  		]	
+}
+
+eclipse.wtp.facet {			// add facets to projects
+  	facet name: 'jst.web', version: '3.1'
+  	facet name: 'jst.jsf', version: '2.2'
+}
+
+// copy classes into inplaceWebApp
+task sync(type: Sync) {
+	dependsOn build
+	from "$sourceSets.main.java.outputDir"
+	into "${project.buildDir}/inplaceWebapp/WEB-INF/classes"
+	
+}
+project.afterEvaluate {
+	tasks.prepareInplaceWebApp {
+		dependsOn sync
+		
+		
+	}
+}
+
+
+
+
