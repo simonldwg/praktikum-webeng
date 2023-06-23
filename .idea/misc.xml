@@ -4,5 +4,9 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$" />
   </component>
+  <component name="ProjectResources">
+    <resource url="jakarta.ee/xml/ns/jakartaee" location="$PROJECT_DIR$" />
+    <resource url="w3.org/2001/XMLSchema-instance" location="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_17" project-jdk-name="19" project-jdk-type="JavaSDK" />
 </project>

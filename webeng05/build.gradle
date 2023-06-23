@@ -19,7 +19,7 @@ apply plugin: 'application'
 apply plugin: 'io.ebean'
 
 // set main class (application plugin)
-mainClassName = 'presentation.PresentationTest'
+mainClassName = 'com.shopmeowmeow.presentation.servlets.CreateDatabase'
 
 
 
