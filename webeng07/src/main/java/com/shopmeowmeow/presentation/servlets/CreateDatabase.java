@@ -19,10 +19,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Properties;
 
 @WebServlet("/create-database")
@@ -50,6 +49,7 @@ public class CreateDatabase extends HttpServlet {
                     "    price float not null,\n" +
                     "    description varchar(255),\n" +
                     "    gender varchar(6),\n" +
+                    "    added_at date not null,\n" +
                     "    constraint ck_cats_color check ( color in ('White','Black','Orange','Brown','Blonde')),\n" +
                     "    constraint ck_cats_hairstyle check ( hairstyle in ('Long','Short','Weird','Normal','No hair')),\n" +
                     "    constraint ck_cats_gender check ( gender in ('Male','Female')),\n" +
@@ -65,10 +65,17 @@ public class CreateDatabase extends HttpServlet {
         this.catDAO = DAOFactory.getCatDAO();
 
         if(!catDAO.containsWithName("Leo")) {
-            catDAO.add(new Cat("Leo", "A beautiful Spanish cat with soft, golden fur.", 2, CatGender.FEMALE, CatColor.BLONDE, CatHairstyle.NORMAL, 143.95F));
-            catDAO.add(new Cat("Gerald", "A robust British grandpa with a good sense of humour.", 9, CatGender.MALE, CatColor.BLACK, CatHairstyle.LONG, 299.95F));
-            catDAO.add(new Cat("Sarah", "A young, wild cat with an attitude.", 1, CatGender.FEMALE, CatColor.ORANGE, CatHairstyle.WEIRD, 12.95F));
-            catDAO.add(new Cat("Doughnut", "A poor, depressed but very cute cat in his midlife crisis.", 4, CatGender.FEMALE, CatColor.WHITE, CatHairstyle.SHORT, 179.95F));
+            Cat leo = new Cat("Leo", "A beautiful Spanish cat with soft, golden fur.", 2, CatGender.FEMALE, CatColor.BLONDE, CatHairstyle.NORMAL, 143.95F);
+            leo.setAddedAt(new Date(new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime().getTime()));
+            catDAO.add(leo);
+            Cat gerald = new Cat("Gerald", "A robust British grandpa with a good sense of humour.", 9, CatGender.MALE, CatColor.BLACK, CatHairstyle.LONG, 299.95F);
+            gerald.setAddedAt(new Date(new GregorianCalendar(2022, Calendar.DECEMBER, 15).getTime().getTime()));
+            catDAO.add(gerald);
+            Cat sarah = new Cat("Sarah", "A young, wild cat with an attitude.", 1, CatGender.FEMALE, CatColor.ORANGE, CatHairstyle.WEIRD, 12.95F);
+            sarah.setAddedAt(new Date(new GregorianCalendar(2023, Calendar.JUNE, 20).getTime().getTime()));
+            catDAO.add(sarah);
+            Cat doughnut = new Cat("Doughnut", "A poor, depressed but very cute cat in his midlife crisis.", 4, CatGender.MALE, CatColor.WHITE, CatHairstyle.SHORT, 179.95F);
+            catDAO.add(doughnut);
         }
 
 

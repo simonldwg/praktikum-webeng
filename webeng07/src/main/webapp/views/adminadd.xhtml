@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+    <f:metadata>
+        <f:viewAction action="#{authorizationBean.checkLoggedIn()}" />
+    </f:metadata>
+</h:head>
+<h:body>
+    <ui:composition template="adminlayout.xhtml">
+        <ui:define name="admintitle">
+            Add Cat
+        </ui:define>
+        <ui:define name="adminheader">
+            <div class="col-sm-4"  id="logo">
+                <h1 class="display-5 fw-bolder">SHOPMEOWMEOW.COM</h1>
+            </div>
+        </ui:define>
+        <ui:define name="admincontent">
+            <h1 class="fw-bolder text-primary mt-n1">/ADD-CAT</h1>
+
+            <h:form class="g-3 align-items-center justify-content-center">
+                <div class="col-auto">
+                    <h:outputLabel class="col-form-label fw-bold">Gender:</h:outputLabel>
+                </div>
+                <div class="col-auto">
+                    <h:selectOneMenu class="form-control" value="#{catBean.newCat.gender}" required="true">
+                        <f:selectItems value="#{catBean.genderOptions}" var="gender"  itemValue="#{gender}" itemLabel="#{gender.displayName}" />
+                    </h:selectOneMenu>
+                </div>
+                <div class="col-auto">
+                    <span class="form-text">
+                      Male or Female only.
+                    </span>
+                </div>
+                <div class="col-auto">
+                    <h:outputLabel class="col-form-label fw-bold">Name:</h:outputLabel>
+                </div>
+                <div class="col-auto">
+                    <h:inputText id="name" class="form-control" value="#{catBean.newCat.name}" validatorMessage="The Cat name needs to be atleast 2 Characters long and can only use [a-z] [A-Z], no Numbers allowed!" required="true">
+                        <f:validateLength minimum="2" maximum="30" />
+                        <f:validateRegex pattern="[A-Z][a-zA-Z]*" />
+                    </h:inputText>
+                    <h:message for="name" errorStyle="color:red" errorClass="form-group has-error" />
+                </div>
+                <div class="col-auto">
+                    <span class="form-text">
+                      Input a new Name for the Cat. Minimum of 2 Characters and maximum of 30.
+                    </span>
+                </div>
+                <div class="col-auto">
+                    <h:outputLabel class="col-form-label fw-bold">Age:</h:outputLabel>
+                </div>
+                <div class="col-auto">
+                    <h:inputText id="age" class="form-control" value="#{catBean.newCat.age}" required="true" >
+                        <f:validateLength minimum="1" maximum="30" />
+                    </h:inputText>
+                    <h:message for="age" errorStyle="color:red" errorClass="form-group has-error" />
+                </div>
+                <div class="col-auto">
+                    <span class="form-text">
+                      Only Numbers from 1 to 30.
+                    </span>
+                </div>
+                <div class="col-auto">
+                    <h:outputLabel class="col-form-label fw-bold">Description:</h:outputLabel>
+                </div>
+                <div class="col-auto">
+                    <h:inputText id="desc" class="form-control" value="#{catBean.newCat.description}" validatorMessage="The Description needs to be between 1 and 255 words!" required="true">
+                        <f:validateLength minimum="1" maximum="255" />
+                    </h:inputText>
+                    <h:message for="desc" errorStyle="color:red" errorClass="form-group has-error" />
+                </div>
+                <div class="col-auto">
+                    <span class="form-text">
+                      Minimum of 1 and maximum of 255 words allowed.
+                    </span>
+                </div>
+                <div class="col-auto">
+                    <h:outputLabel class="col-form-label fw-bold">Hairstyle:</h:outputLabel>
+                </div>
+                <div class="col-auto">
+                    <h:selectOneMenu class="form-control" value="#{catBean.newCat.hairstyle}" required="true">
+                        <f:selectItems value="#{catBean.hairstyleOptions}" var="hairstyle" itemValue="#{hairstyle}" itemLabel="#{hairstyle.displayName}" />
+                    </h:selectOneMenu>
+                </div>
+                <div class="col-auto">
+                    <span class="form-text">
+                      What is his/her Hairstyle?
+                    </span>
+                </div>
+                <div class="col-auto">
+                    <h:outputLabel class="col-form-label fw-bold">Color:</h:outputLabel>
+                </div>
+                <div class="col-auto">
+                    <h:selectOneMenu class="form-control" value="#{catBean.newCat.color}" required="true">
+                        <f:selectItems value="#{catBean.colorOptions}" var="color" itemValue="#{color}" itemLabel="#{color.displayName}" />
+                    </h:selectOneMenu>
+                </div>
+                <div class="col-auto">
+                    <span class="form-text">
+                      What color does the fur have?
+                    </span>
+                </div>
+                <div class="col-auto">
+                    <h:outputLabel class="col-form-label fw-bold">Price:</h:outputLabel>
+                </div>
+                <div class="col-auto">
+                    <h:inputText id="price" class="form-control" value="#{catBean.newCat.price}" validatorMessage="The minimum Price is 0.1€" required="true">
+                        <f:validateDoubleRange minimum="0.1" />
+                    </h:inputText>
+                    <h:message for="price" errorStyle="color:red" errorClass="form-group has-error" />
+                </div>
+                <div class="col-auto">
+                    <span class="form-text">
+                      Input a new Price tag for the Cat. Minimum 0.1€
+                    </span>
+                </div>
+                <br/>
+                <h:commandButton id="success" value="Add Cat" action="#{catBean.addCat}" class="btn btn-primary" />
+                <h:commandButton value="Cancel" action="cancelAdd" class="btn btn-danger" immediate="true"/>
+            </h:form>
+
+        </ui:define>
+        <ui:define name="footer">
+            <div class="col-sm-12" id="footer">
+                <ul class="nav nav-underline justify-content-center">
+                    <p>copyright 2023 by us</p>
+                </ul>
+            </div>
+        </ui:define>
+    </ui:composition>
+</h:body>
+
+</html>

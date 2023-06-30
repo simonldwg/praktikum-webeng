@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:jsf="http://xmlns.jcp.org/jsf"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+    <title>Home</title>
+</h:head>
+<h:body>
+<ui:composition>
+    <div class="col-sm-4"  id="logo">
+        <h1 class="display-5 fw-bolder">SHOPMEOWMEOW.COM</h1>
+    </div>
+    <div class="col-sm-5 mt-5" id="navigation">
+        <ul class="nav nav-underline justify-content-center" style="height: 100%">
+            <li class="nav-item list-unstyled">
+                <a class="nav-link fs-5 fw-bold" href="index.xhtml">HOME</a>
+            </li>
+
+            <li class="nav-item list-unstyled">
+                <a class="nav-link fs-5 fw-bold" href="new-in-stock.xhtml">NEW IN STOCK</a>
+            </li>
+
+            <li class="nav-item list-unstyled">
+                <a class="nav-link fs-5 fw-bold" href="support.xhtml">SUPPORT</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-sm-3" id="cart">
+            <a href="cart.xhtml" class="btn btn-light position-relative">
+                <i class="bi bi-cart4 fs-cart"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                21
+                <span class="visually-hidden">Cart is empty</span>
+                </span>
+            </a>
+    </div>
+</ui:composition>
+</h:body>
+</html>

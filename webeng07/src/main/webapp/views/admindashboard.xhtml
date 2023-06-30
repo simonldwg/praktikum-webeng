@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:jsf="http://xmlns.jcp.org/jsf"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+    <f:metadata>
+        <f:viewAction action="#{authorizationBean.checkLoggedIn()}" />
+    </f:metadata>
+</h:head>
+<h:body>
+
+    <ui:composition template="adminlayout.xhtml">
+        <ui:define name="admintitle">
+            Admin Dash
+        </ui:define>
+        <ui:define name="admincontent">
+            <h1 class="fw-bolder text-primary mt-n1">/ADMIN-DASHBOARD</h1>
+            <h:form>
+                <h:dataTable class="table table-striped table-hover" value="#{catBean.cats}" var="cat">
+                    <h:column>
+                        <f:facet name="header">GENDER</f:facet>
+                        #{cat.gender.displayName}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">NAME</f:facet>
+                        #{cat.name}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">AGE</f:facet>
+                        #{cat.age}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">HAIRSTYLE</f:facet>
+                        #{cat.hairstyle.displayName}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">COLOR</f:facet>
+                        #{cat.color.displayName}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">PRICE</f:facet>
+                        <p style="font-weight: bold; text-decoration: underline;">#{cat.price}€</p>
+                    </h:column>
+                    <h:column>
+                        <h:commandLink value="Edit" action="#{catBean.prepareEditCat(cat)}" class="btn btn-primary me-2" ></h:commandLink>
+                        <h:commandLink value="Delete" action="#{catBean.prepareDeleteCat(cat)}" class="btn btn-danger me-2"></h:commandLink>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </ui:define>
+        <ui:define name="footer">
+            <div class="col-sm-12" id="footer">
+                <ul class="nav nav-underline justify-content-center">
+                    <p>copyright 2023 by us</p>
+                </ul>
+            </div>
+        </ui:define>
+    </ui:composition>
+
+</h:body>
+
+</html>

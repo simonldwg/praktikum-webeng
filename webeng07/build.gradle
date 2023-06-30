@@ -7,7 +7,6 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.glassfish/jakarta.faces
 	implementation 'org.glassfish:jakarta.faces:3.0.4'
 
-
 	// CDI Implementation	
 	// https://mvnrepository.com/artifact/org.jboss.weld.servlet/weld-servlet-core
 	implementation 'org.jboss.weld.servlet:weld-servlet-core:5.1.0.Final'
@@ -15,8 +14,7 @@ dependencies {
 	providedCompile group: 'com.h2database', name: 'h2', version: '2.1.214'			// add h2-Database dependency
 
 	implementation("io.ebean:ebean-annotation:6.11")
-	implementation("io.ebean:ebean:13.15.0")
-	implementation("io.ebean:ebean-ddl-generator:13.15.0")
+	implementation("io.ebean:ebean:12.3.2")
 
 }
 

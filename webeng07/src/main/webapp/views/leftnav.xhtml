@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:jsf="http://xmlns.jcp.org/jsf"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:body>
+    <ui:composition>
+
+        <div class="ms-9" id="leftnav">
+            <h:form class="d-flex" action="">
+                <input class="form-control me-2" placeholder="Search..."></input>
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </h:form>
+            <br/>
+            <div class="nav flex-column">
+                    <a class="leftnav-link" href="#">Sales</a>
+                    <a class="leftnav-link" href="#">Payment methods</a>
+                    <a class="leftnav-link" href="#">Shipping Information</a>
+                    <a class="leftnav-link" href="#">Returns Information</a>
+                    <a class="leftnav-link" href="#">Help and FAQ</a>
+                <br/>
+                <p class="fw-bold">GENDER</p>
+                    <a class="leftnav-link" href="filtergender.xhtml?gender=MALE">Male</a>
+                    <a class="leftnav-link" href="filtergender.xhtml?gender=FEMALE">Female</a>
+                <br/>
+                <p class="fw-bold">HAIRSTYLE</p>
+                    <a class="leftnav-link" href="filterhairstyle.xhtml?hairstyle=SHORT">Short hair</a>
+                    <a class="leftnav-link" href="filterhairstyle.xhtml?hairstyle=NORMAL">Normal hair</a>
+                    <a class="leftnav-link" href="filterhairstyle.xhtml?hairstyle=LONG">Long hair</a>
+                    <a class="leftnav-link" href="filterhairstyle.xhtml?hairstyle=WEIRD">Weird hair</a>
+                    <a class="leftnav-link" href="filterhairstyle.xhtml?hairstyle=NO_HAIR">No hair</a>
+                <br/>
+                <p class="fw-bold">COLORS</p>
+                    <div class="nav">
+                        <a href="filtercolor.xhtml?color=WHITE" class="bg-body-secondary round-button"></a>
+                        <a href="filtercolor.xhtml?color=BLACK" class="bg-dark round-button"></a>
+                        <a href="filtercolor.xhtml?color=BROWN" class="round-button" style="background:saddlebrown"></a>
+                        <a href="filtercolor.xhtml?color=BLONDE" class="bg-warning-subtle round-button"></a>
+                        <a href="filtercolor.xhtml?color=ORANGE" class="round-button" style="background: darkorange"></a>
+                    </div>
+            </div>
+        </div>
+
+    </ui:composition>
+</h:body>
+</html>

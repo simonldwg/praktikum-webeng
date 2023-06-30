@@ -16,4 +16,7 @@ public interface CatDAO {
     void delete(Cat t);
 
     boolean containsWithName(String name);
+
+    List<Cat> getMostRecent();
+    List<Cat> getCatsWhereEquals(String attribute, Object value);
 }

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+    <f:metadata>
+        <f:viewAction action="#{authorizationBean.checkLoggedIn()}" />
+    </f:metadata>
+</h:head>
+<h:body>
+    <ui:composition template="adminlayout.xhtml">
+        <ui:define name="admintitle">
+            Edit Cat
+        </ui:define>
+        <ui:define name="adminheader">
+            <div class="col-sm-4"  id="logo">
+                <h1 class="display-5 fw-bolder">SHOPMEOWMEOW.COM</h1>
+            </div>
+        </ui:define>
+        <ui:define name="admincontent">
+            <h1 class="fw-bolder text-primary mt-n1">/EDIT-CAT</h1>
+
+            <h:form class="g-3 align-items-center justify-content-center">
+                <div class="col-auto">
+                    <h:outputLabel class="col-form-label fw-bold">Gender:</h:outputLabel>
+                </div>
+                <div class="col-auto">
+                    <h:selectOneMenu class="form-control" value="#{catBean.selectedCat.gender}">
+                        <f:selectItems value="#{catBean.genderOptions}" var="gender" itemValue="#{gender}" itemLabel="#{gender.displayName}" />
+                    </h:selectOneMenu>
+                </div>
+                <div class="col-auto">
+                    <span class="form-text">
+                      Male or Female only.
+                    </span>
+                </div>
+                <div class="col-auto">
+                    <h:outputLabel class="col-form-label fw-bold">Name:</h:outputLabel>
+                </div>
+                <div class="col-auto">
+                    <h:inputText class="form-control" value="#{catBean.selectedCat.name}" ></h:inputText>
+                </div>
+                <div class="col-auto">
+                    <span class="form-text">
+                      Input a new Name for the Cat.
+                    </span>
+                </div>
+                <div class="col-auto">
+                    <h:outputLabel class="col-form-label fw-bold">Age:</h:outputLabel>
+                </div>
+                <div class="col-auto">
+                    <h:inputText class="form-control" value="#{catBean.selectedCat.age}" ></h:inputText>
+                </div>
+                <div class="col-auto">
+                    <span class="form-text">
+                      Only Numbers from 1 to 30.
+                    </span>
+                </div>
+                <div class="col-auto">
+                    <h:outputLabel class="col-form-label fw-bold">Hairstyle:</h:outputLabel>
+                </div>
+                <div class="col-auto">
+                    <h:selectOneMenu class="form-control" value="#{catBean.selectedCat.hairstyle}">
+                        <f:selectItems value="#{catBean.hairstyleOptions}" var="hairstyle" itemValue="#{hairstyle}" itemLabel="#{hairstyle.displayName}" />
+                    </h:selectOneMenu>
+                </div>
+                <div class="col-auto">
+                    <span class="form-text">
+                      Did the Hairstyle change? Change it.
+                    </span>
+                </div>
+                <div class="col-auto">
+                    <h:outputLabel class="col-form-label fw-bold">Color:</h:outputLabel>
+                </div>
+                <div class="col-auto">
+                    <h:selectOneMenu class="form-control" value="#{catBean.selectedCat.color}">
+                        <f:selectItems value="#{catBean.colorOptions}" var="color" itemValue="#{color}" itemLabel="#{color.displayName}" />
+                    </h:selectOneMenu>
+                </div>
+                <div class="col-auto">
+                    <span class="form-text">
+                      Did you put in the wrong Fur color?
+                    </span>
+                </div>
+                <div class="col-auto">
+                    <h:outputLabel class="col-form-label fw-bold">Price:</h:outputLabel>
+                </div>
+                <div class="col-auto">
+                    <h:inputText class="form-control" value="#{catBean.selectedCat.price}" ></h:inputText>
+                </div>
+                <div class="col-auto">
+                    <span class="form-text">
+                      Input a new Price tag for the Cat.
+                    </span>
+                </div>
+                <br/>
+                <h:commandButton value="Save Edit" action="#{catBean.updateCat}" class="btn btn-primary" ></h:commandButton>
+                <h:commandButton value="Cancel" action="cancelEdit" class="btn btn-danger" />
+            </h:form>
+
+        </ui:define>
+        <ui:define name="footer">
+            <div class="col-sm-12" id="footer">
+                <ul class="nav nav-underline justify-content-center">
+                    <p>copyright 2023 by us</p>
+                </ul>
+            </div>
+        </ui:define>
+    </ui:composition>
+</h:body>
+
+</html>

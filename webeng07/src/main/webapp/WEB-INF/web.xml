@@ -4,7 +4,7 @@
 		 xsi:schemaLocation="jakarta.ee/xml/ns/jakartaee jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
 		 version="6.0" metadata-complete="true">
 
-	<display-name>"helloJSF"</display-name>
+	<display-name>"CatShop"</display-name>
 
 
 	<!-- 	<listener> -->
@@ -17,6 +17,7 @@
 	<welcome-file-list>
 
 		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.xhtml</welcome-file>
 		<welcome-file>index.htm</welcome-file>
 		<welcome-file>index.jsp</welcome-file>
 		<welcome-file>default.html</welcome-file>
@@ -54,21 +55,22 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-	<servlet>
-		<servlet-name>CreateDatabase</servlet-name>
-		<servlet-class>com.shopmeowmeow.presentation.servlets.CreateDatabase</servlet-class>
-	</servlet>
 	<servlet-mapping>
 		<servlet-name>H2Console</servlet-name>
 		<url-pattern>/console/*</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>CreateDatabase</servlet-name>
+		<servlet-class>com.shopmeowmeow.presentation.servlets.CreateDatabase</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>CreateDatabase</servlet-name>
 		<url-pattern>/create-database</url-pattern>
 	</servlet-mapping>
 
 	<session-config>
-		<session-timeout>1</session-timeout>
+		<session-timeout>60</session-timeout>
 	</session-config>
 
 	<listener>

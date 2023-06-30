@@ -3,6 +3,98 @@
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-facesconfig_3_0.xsd"
               version="3.0">
+    <managed-bean>
+        <managed-bean-name>catBean</managed-bean-name>
+        <managed-bean-class>com.shopmeowmeow.presentation.managedBeans.CatBean</managed-bean-class>
+        <managed-bean-scope>application</managed-bean-scope>
+    </managed-bean>
+
+    <navigation-rule>
+        <from-view-id>/views/adminlogin.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{adminLoginBean.login}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/views/admindashboard.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>goToAdminLogin</from-outcome>
+            <to-view-id>/views/adminlogin.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>backToHome</from-outcome>
+            <to-view-id>/views/index.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/views/admindashboard.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>goToAdd</from-outcome>
+            <to-view-id>/views/adminadd.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{adminLoginBean.logout}</from-action>
+            <from-outcome>logout</from-outcome>
+            <to-view-id>/views/index.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>goToEditCat</from-outcome>
+            <to-view-id>/views/editCat.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>goToDeleteCat</from-outcome>
+            <to-view-id>/views/deleteCat.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/views/editCat.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>saveEdit</from-outcome>
+            <to-view-id>/views/admindashboard.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancelEdit</from-outcome>
+            <to-view-id>/views/admindashboard.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/views/deleteCat.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>confirmDelete</from-outcome>
+            <to-view-id>/views/admindashboard.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancelDelete</from-outcome>
+            <to-view-id>/views/admindashboard.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/views/adminadd.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>successAdd</from-outcome>
+            <to-view-id>/views/admindashboard.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancelAdd</from-outcome>
+            <to-view-id>/views/admindashboard.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
 
 </faces-config>
 <!-- 

@@ -26,4 +26,14 @@ public class CatManager {
     public void addCat(Cat a) {
         catDAO.add(a);
     }
+
+    public void updateCat(Cat cat) {
+        catDAO.update(cat);
+    }
+    public List<Cat> getMostRecent() {
+        return catDAO.getMostRecent();
+    }
+    public List<Cat> getCatsWhereEquals(String attribute, Object value) {
+        return catDAO.getCatsWhereEquals(attribute, value);
+    }
 }

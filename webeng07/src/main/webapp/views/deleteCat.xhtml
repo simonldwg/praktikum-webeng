@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+    <f:metadata>
+        <f:viewAction action="#{authorizationBean.checkLoggedIn()}" />
+    </f:metadata>
+</h:head>
+<h:body>
+    <ui:composition template="adminlayout.xhtml">
+        <ui:define name="admintitle">
+            Delete Cat
+        </ui:define>
+        <ui:define name="adminheader">
+            <div class="col-sm-4"  id="logo">
+                <h1 class="display-5 fw-bolder">SHOPMEOWMEOW.COM</h1>
+            </div>
+        </ui:define>
+        <ui:define name="admincontent">
+            <h1 class="fw-bolder text-primary mt-n1">/DELETE-CAT</h1>
+
+            <h:form class="g-3 align-items-center justify-content-center">
+                <div class="col-auto">
+                    <h:outputLabel class="col-form-label fw-bold">Gender:</h:outputLabel>
+                </div>
+                <div class="col-auto">
+                    <h:outputText class="form-control" value="#{catBean.selectedCat.gender.displayName}" ></h:outputText>
+                </div>
+                <div class="col-auto">
+                    <h:outputLabel class="col-form-label fw-bold">Name:</h:outputLabel>
+                </div>
+                <div class="col-auto">
+                    <h:outputText class="form-control" value="#{catBean.selectedCat.name}" ></h:outputText>
+                </div>
+                <div class="col-auto">
+                    <h:outputLabel class="col-form-label fw-bold">Age:</h:outputLabel>
+                </div>
+                <div class="col-auto">
+                    <h:outputText class="form-control" value="#{catBean.selectedCat.age}" ></h:outputText>
+                </div>
+                <div class="col-auto">
+                    <h:outputLabel class="col-form-label fw-bold">Hairstyle:</h:outputLabel>
+                </div>
+                <div class="col-auto">
+                    <h:outputText class="form-control" value="#{catBean.selectedCat.hairstyle.displayName}" ></h:outputText>
+                </div>
+                <div class="col-auto">
+                    <h:outputLabel class="col-form-label fw-bold">Color:</h:outputLabel>
+                </div>
+                <div class="col-auto">
+                    <h:outputText class="form-control" value="#{catBean.selectedCat.color.displayName}" ></h:outputText>
+                </div>
+                <div class="col-auto">
+                    <h:outputLabel class="col-form-label fw-bold">Price:</h:outputLabel>
+                </div>
+                <div class="col-auto">
+                    <h:outputText class="form-control" value="#{catBean.selectedCat.price}" ></h:outputText>
+                </div>
+                <br/>
+                <h:commandButton value="Confirm Delete" action="#{catBean.deleteCat}" class="btn btn-primary" ></h:commandButton>
+                <h:commandButton value="Cancel" action="cancelDelete" class="btn btn-danger" />
+            </h:form>
+
+        </ui:define>
+        <ui:define name="footer">
+            <div class="col-sm-12" id="footer">
+                <ul class="nav nav-underline justify-content-center">
+                    <p>copyright 2023 by us</p>
+                </ul>
+            </div>
+        </ui:define>
+    </ui:composition>
+</h:body>
+
+</html>
