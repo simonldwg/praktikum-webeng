@@ -9,6 +9,11 @@
         <managed-bean-scope>application</managed-bean-scope>
     </managed-bean>
 
+    <converter>
+        <converter-id>convertDate</converter-id>
+        <converter-class>com.shopmeowmeow.converter.ConvertDate</converter-class>
+    </converter>
+
     <navigation-rule>
         <from-view-id>/views/adminlogin.xhtml</from-view-id>
         <navigation-case>

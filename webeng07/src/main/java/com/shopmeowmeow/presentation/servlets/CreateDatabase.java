@@ -20,6 +20,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Properties;
@@ -64,21 +65,19 @@ public class CreateDatabase extends HttpServlet {
         }
         this.catDAO = DAOFactory.getCatDAO();
 
-        if(!catDAO.containsWithName("Leo")) {
+        if (!catDAO.containsWithName("Leo")) {
             Cat leo = new Cat("Leo", "A beautiful Spanish cat with soft, golden fur.", 2, CatGender.FEMALE, CatColor.BLONDE, CatHairstyle.NORMAL, 143.95F);
-            leo.setAddedAt(new Date(new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime().getTime()));
+            leo.setAddedAt(LocalDate.of(2014, Calendar.FEBRUARY, 11));
             catDAO.add(leo);
             Cat gerald = new Cat("Gerald", "A robust British grandpa with a good sense of humour.", 9, CatGender.MALE, CatColor.BLACK, CatHairstyle.LONG, 299.95F);
-            gerald.setAddedAt(new Date(new GregorianCalendar(2022, Calendar.DECEMBER, 15).getTime().getTime()));
+            gerald.setAddedAt(LocalDate.of(2022, Calendar.DECEMBER, 15));
             catDAO.add(gerald);
             Cat sarah = new Cat("Sarah", "A young, wild cat with an attitude.", 1, CatGender.FEMALE, CatColor.ORANGE, CatHairstyle.WEIRD, 12.95F);
-            sarah.setAddedAt(new Date(new GregorianCalendar(2023, Calendar.JUNE, 20).getTime().getTime()));
+            sarah.setAddedAt(LocalDate.of(2023, Calendar.JUNE, 20));
             catDAO.add(sarah);
             Cat doughnut = new Cat("Doughnut", "A poor, depressed but very cute cat in his midlife crisis.", 4, CatGender.MALE, CatColor.WHITE, CatHairstyle.SHORT, 179.95F);
             catDAO.add(doughnut);
         }
-
-
     }
 
 

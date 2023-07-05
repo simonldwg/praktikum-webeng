@@ -7,7 +7,7 @@ import io.ebean.annotation.Length;
 import io.ebean.annotation.NotNull;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "Cats")
@@ -61,11 +61,11 @@ public class Cat {
         this.price = price;
         this.description = description;
         this.gender = gender;
-        this.addedAt = new Date(System.currentTimeMillis());
+        this.addedAt = LocalDate.now();
     }
 
     public Cat() {
-        this.addedAt = new Date(System.currentTimeMillis());
+        this.addedAt = LocalDate.now();
     }
 
     public Long getId() {
@@ -110,14 +110,14 @@ public class Cat {
     @Enumerated(EnumType.STRING)
     private CatGender gender;
 
-    public Date getAddedAt() {
+    public LocalDate getAddedAt() {
         return addedAt;
     }
 
-    public void setAddedAt(Date addedAt) {
+    public void setAddedAt(LocalDate addedAt) {
         this.addedAt = addedAt;
     }
 
-    private Date addedAt;
+    private LocalDate addedAt;
 
 }

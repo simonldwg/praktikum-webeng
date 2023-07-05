@@ -121,6 +121,20 @@
                       Input a new Price tag for the Cat. Minimum 0.1€
                     </span>
                 </div>
+                <div class="col-auto">
+                    <h:outputLabel class="col-form-label fw-bold">Added:</h:outputLabel>
+                </div>
+                <div class="col-auto">
+                    <h:inputText id="addedAt" converter="convertDate" class="form-control" placeholder="YYYY-MM-DD" value="#{catBean.newCat.addedAt}" required="true">
+                        <f:validator validatorId="validateDate" />
+                    </h:inputText>
+                    <h:message for="addedAt" errorStyle="color:red" errorClass="form-group has-error" />
+                </div>
+                <div class="col-auto">
+                    <span class="form-text">
+                      When did the Cat enter the Sales Roster? Use YYYY-MM-DD
+                    </span>
+                </div>
                 <br/>
                 <h:commandButton id="success" value="Add Cat" action="#{catBean.addCat}" class="btn btn-primary" />
                 <h:commandButton value="Cancel" action="cancelAdd" class="btn btn-danger" immediate="true"/>

@@ -97,6 +97,20 @@
                       Input a new Price tag for the Cat.
                     </span>
                 </div>
+                <div class="col-auto">
+                    <h:outputLabel class="col-form-label fw-bold">Added:</h:outputLabel>
+                </div>
+                <div class="col-auto">
+                    <h:inputText id="addedAt" converter="convertDate" class="form-control" value="#{catBean.selectedCat.addedAt}">
+                    <f:validator validatorId="validateDate" />
+                    </h:inputText>
+                    <h:message for="addedAt" errorStyle="color:red" errorClass="form-group has-error" />
+                </div>
+                <div class="col-auto">
+                    <span class="form-text">
+                      Use YYYY-MM-DD.
+                    </span>
+                </div>
                 <br/>
                 <h:commandButton value="Save Edit" action="#{catBean.updateCat}" class="btn btn-primary" ></h:commandButton>
                 <h:commandButton value="Cancel" action="cancelEdit" class="btn btn-danger" />
