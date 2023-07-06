@@ -50,7 +50,7 @@ public class OrmCatDAO extends OrmDaoBase implements CatDAO {
 
     @Override
     public List<Cat> getCatsWhereEquals(String attribute, Object value) {
-        System.out.println("hi" +value);
+        System.out.println(value);
         return getDatabase().find(Cat.class).where().eq(attribute, value).findList();
     }
 

@@ -3,7 +3,9 @@ package com.shopmeowmeow.businessLogic.managers;
 import com.shopmeowmeow.persistence.CatDAO;
 import com.shopmeowmeow.persistence.DAOFactory;
 import com.shopmeowmeow.transfer.Cat;
+import com.shopmeowmeow.validators.ValidateDate;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class CatManager {
