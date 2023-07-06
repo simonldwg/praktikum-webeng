@@ -50,6 +50,7 @@ public class CreateDatabase extends HttpServlet {
                     "    description varchar(255),\n" +
                     "    gender varchar(6),\n" +
                     "    added_at date not null,\n" +
+                    "    reserved boolean not null,\n" +
                     "    constraint ck_cats_color check ( color in ('White','Black','Orange','Brown','Blonde')),\n" +
                     "    constraint ck_cats_hairstyle check ( hairstyle in ('Long','Short','Weird','Normal','No hair')),\n" +
                     "    constraint ck_cats_gender check ( gender in ('Male','Female')),\n" +

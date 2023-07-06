@@ -14,6 +14,11 @@ public class CatManager {
     public List<Cat> getAllCats() {
         return catDAO.getAll();
     }
+    public List<Cat> getAllFreeCats() {
+        final List<Cat> result = this.getAllCats();
+        result.removeIf(Cat::isReserved);
+        return result;
+    }
 
     public Cat getCat(long id) {
         return catDAO.get(id);
@@ -29,6 +34,14 @@ public class CatManager {
 
     public void updateCat(Cat cat) {
         catDAO.update(cat);
+    }
+    public void reserve(Cat c) {
+        c.setReserved(true);
+        this.updateCat(c);
+    }
+    public void free(Cat c) {
+        c.setReserved(false);
+        this.updateCat(c);
     }
     public List<Cat> getMostRecent() {
         return catDAO.getMostRecent();

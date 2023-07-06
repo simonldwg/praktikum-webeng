@@ -1,5 +1,6 @@
 package com.shopmeowmeow.presentation.managedBeans;
 
+import com.shopmeowmeow.businessLogic.managers.ShoppingCartManager;
 import com.shopmeowmeow.transfer.Cat;
 import com.shopmeowmeow.transfer.ShoppingCart;
 import jakarta.enterprise.context.SessionScoped;
@@ -19,11 +20,24 @@ public class ShoppingCartBean implements Serializable {
         this.shoppingCart = shoppingCart;
     }
 
+    private ShoppingCartManager shoppingCartManager = new ShoppingCartManager();
+
     private ShoppingCart shoppingCart = new ShoppingCart();
 
-    public void addCat(Cat cat) {
-        var cats = this.shoppingCart.getCats();
-        cats.add(cat);
-        this.shoppingCart.setCats(cats);
+    public String addCat(Cat cat) {
+        shoppingCartManager.addCat(cat, shoppingCart);
+        return "cart.xhtml";
+    }
+    public String removeCat(Cat cat) {
+        shoppingCartManager.removeCat(cat, shoppingCart);
+        return "cart.xhtml";
+    }
+
+    public int getNumberOfCats() {
+        return this.shoppingCart.getCats().size();
+    }
+
+    public float total() {
+        return shoppingCartManager.total(this.shoppingCart);
     }
 }

@@ -35,7 +35,7 @@
             <a href="cart.xhtml" class="btn btn-light position-relative">
                 <i class="bi bi-cart4 fs-cart"></i>
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                21
+                    <h:outputText value="#{shoppingCartBean.getNumberOfCats()}"></h:outputText>
                 <span class="visually-hidden">Cart is empty</span>
                 </span>
             </a>

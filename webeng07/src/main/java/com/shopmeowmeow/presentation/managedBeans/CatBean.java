@@ -41,9 +41,7 @@ public class CatBean implements Serializable {
     }
 
     public List<Cat> getCats() {
-        if (cats == null) {
-            cats = catManager.getAllCats();
-        }
+        cats = catManager.getAllFreeCats();
         return cats;
     }
 

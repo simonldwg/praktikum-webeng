@@ -62,6 +62,7 @@ public class Cat {
         this.description = description;
         this.gender = gender;
         this.addedAt = new Date(System.currentTimeMillis());
+        this.reserved = false;
     }
 
     public Cat() {
@@ -119,5 +120,15 @@ public class Cat {
     }
 
     private Date addedAt;
+
+    public boolean isReserved() {
+        return reserved;
+    }
+
+    public void setReserved(boolean reserved) {
+        this.reserved = reserved;
+    }
+
+    private boolean reserved;
 
 }
