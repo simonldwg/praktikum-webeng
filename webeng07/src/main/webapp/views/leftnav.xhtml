@@ -16,7 +16,7 @@
             <h:form class="d-flex form-floating mb-3">
                 <h:inputText id="searchInput" class="form-control"  value="#{searchBean.searchTerm}">
                     <f:passThroughAttribute name="placeholder" value="Search..." />
-                    <f:ajax event="keyup" listener="#{searchBean.searchListener}" render="searchResults" />
+                    <f:ajax event="keyup" listener="#{searchBean.searchListener}" execute="@this" render="searchResults" />
                 </h:inputText>
                 <h:outputLabel for="searchInput">Searching for Name</h:outputLabel>
             </h:form>
