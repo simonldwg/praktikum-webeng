@@ -101,6 +101,15 @@
         </navigation-case>
     </navigation-rule>
 
+    <navigation-rule>
+        <from-view-id>/views/cart.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>goToCheckOut</from-outcome>
+            <to-view-id>/views/checkout.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
 </faces-config>
 <!-- 
 <?xml version="1.0" encoding="UTF-8"?>
