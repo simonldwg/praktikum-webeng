@@ -16,10 +16,23 @@
             <h:form class="d-flex form-floating mb-3">
                 <h:inputText id="searchInput" class="form-control"  value="#{searchBean.searchTerm}">
                     <f:passThroughAttribute name="placeholder" value="Search..." />
+                    <f:passThroughAttribute name="autocomplete" value="off" />
                     <f:ajax event="keyup" listener="#{searchBean.searchListener}" execute="@this" render="searchResults" />
                 </h:inputText>
                 <h:outputLabel for="searchInput">Searching for Name</h:outputLabel>
             </h:form>
+            <h:panelGroup id="searchResults">
+                <ul class="list-group">
+                    <ui:repeat value="#{searchBean.searchResults}" var="cat">
+                        <li class="list-group-item">
+                            <h:form>
+                                <h:outputText value="#{cat.name}"></h:outputText>
+                            </h:form>
+                        </li>
+                    </ui:repeat>
+                </ul>
+            </h:panelGroup>
+
 
             <br/>
             <div class="nav flex-column">

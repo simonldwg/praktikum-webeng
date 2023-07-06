@@ -38,19 +38,9 @@ public class SearchBean implements Serializable {
 
     public void searchListener() {
         if (searchTerm != null && !searchTerm.isEmpty()) {
-            searchResults = catManager.getCatsWhereEquals("name", searchTerm);
+            searchResults = catManager.getCatsWhereSubstring("name", searchTerm);
         } else {
             searchResults = new ArrayList<>();
         }
-    }
-
-    public boolean matchesSearchTerm(String catName) {
-        if (searchTerm == null || searchTerm.trim().isEmpty()) {
-            // Wenn der Suchbegriff leer ist, zeige alle Karten an
-            return true;
-        }
-
-        // Überprüfe, ob der Katzenname den Suchbegriff enthält (ignoriert Groß-/Kleinschreibung)
-        return catName.toLowerCase().contains(searchTerm.toLowerCase());
     }
 }

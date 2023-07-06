@@ -19,4 +19,5 @@ public interface CatDAO {
 
     List<Cat> getMostRecent();
     List<Cat> getCatsWhereEquals(String attribute, Object value);
+    List<Cat> getCatsWhereSubstring(String attribute, String value);
 }

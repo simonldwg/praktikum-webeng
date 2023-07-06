@@ -51,4 +51,8 @@ public class CatManager {
     public List<Cat> getCatsWhereEquals(String attribute, Object value) {
         return catDAO.getCatsWhereEquals(attribute, value);
     }
+
+    public List<Cat> getCatsWhereSubstring(String attribute, String value) {
+        return catDAO.getCatsWhereSubstring(attribute, value);
+    }
 }
