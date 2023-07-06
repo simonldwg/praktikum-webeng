@@ -17,96 +17,96 @@
             <h1 class="fw-bolder text-primary mt-n1">/CHECKOUT</h1>
             <div class="row container">
                 <div class="col-md-8">
-                    <h:form>
                         <div class="card card-body">
                             <h2>Delivery address</h2>
 
                             <h:form class="row g-3">
                                 <div class="col-md-6">
-                                    <label for="firstname" class="form-label">Firstname</label>
-                                    <input type="text" class="form-control" id="firstname" />
+                                    <h:outputLabel for="firstname" class="form-label">Firstname</h:outputLabel>
+                                    <h:inputText type="text" class="form-control" id="firstname" />
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="lastname" class="form-label">Lastname</label>
-                                    <input type="text" class="form-control" id="lastname" />
+                                    <h:outputLabel for="lastname" class="form-label">Lastname</h:outputLabel>
+                                    <h:inputText type="text" class="form-control" id="lastname" />
                                 </div>
                                 <div class="col-12">
-                                    <label for="inputAddress" class="form-label">Address</label>
-                                    <input type="text" class="form-control" id="inputAddress" placeholder="Main Street 12" />
+                                    <h:outputLabel for="inputAddress" class="form-label">Address</h:outputLabel>
+                                    <h:inputText type="text" class="form-control" id="inputAddress" placeholder="Main Street 12" />
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="inputCity" class="form-label">City</label>
-                                    <input type="text" class="form-control" id="inputCity" />
+                                    <h:outputLabel for="inputCity" class="form-label">City</h:outputLabel>
+                                    <h:inputText type="text" class="form-control" id="inputCity" />
                                 </div>
                                 <div class="col-md-4">
-                                    <label for="inputState" class="form-label">State</label>
-                                    <input type="text" class="form-control" id="inputState" />
+                                    <h:outputLabel for="inputState" class="form-label">State</h:outputLabel>
+                                    <h:inputText type="text" class="form-control" id="inputState" />
                                 </div>
                                 <div class="col-md-2">
-                                    <label for="inputZip" class="form-label">Zip</label>
-                                    <input type="text" class="form-control" id="inputZip" />
+                                    <h:outputLabel for="inputZip" class="form-label">Zip</h:outputLabel>
+                                    <h:inputText type="text" class="form-control" id="inputZip" />
                                 </div>
                             </h:form>
                             <br/>
                             <h2>Payment method</h2>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked="checked"  />
-                                <label class="form-check-label" for="exampleRadios1">
-                                    Paypal
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" />
-                                <label class="form-check-label" for="exampleRadios2">
-                                    Credit Card
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" />
-                                <label class="form-check-label" for="exampleRadios3">
-                                    Instant bank transfer
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option4" />
-                                <label class="form-check-label" for="exampleRadios4">
-                                    Klarna
-                                </label>
-                            </div>
+                            <h:form>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked="checked"  />
+                                    <h:outputLabel class="form-check-label" for="exampleRadios1">
+                                        Paypal
+                                    </h:outputLabel>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" />
+                                    <h:outputLabel class="form-check-label" for="exampleRadios2">
+                                        Credit Card
+                                    </h:outputLabel>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" />
+                                    <h:outputLabel class="form-check-label" for="exampleRadios3">
+                                        Instant bank transfer
+                                    </h:outputLabel>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option4" />
+                                    <h:outputLabel class="form-check-label" for="exampleRadios4">
+                                        Klarna
+                                    </h:outputLabel>
+                                </div>
+                            </h:form>
                         </div>
-                    </h:form>
                     <br/>
                 </div>
                 <div class="col-md-4">
                     <div class="card-body">
                         <h2>Order overview</h2>
-                        <h:dataTable class="table table-striped table-hover" value="#{shoppingCartBean.shoppingCart.cats}" var="cat">
-                        <h:column>
-                            <f:facet name="header">Name</f:facet>
-                            #{cat.name}
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">Price</f:facet>
-                            #{cat.price}
-                        </h:column>
-                        </h:dataTable>
-                        <h:column>
-                            <h:form class="row align-items-center">
-                                <div class="col-sm-7">
-                                    <p style="font-weight: bold; text-decoration: double underline;">
-                                        Total Price:
-                                        <h:outputText value="#{shoppingCartBean.total()}">
-                                            <f:convertNumber pattern="#0.00" />
-                                        </h:outputText>€
-                                    </p>
-                                </div>
-                                <div class="col-auto">
-                                    <h:commandLink value="Buy Now!" action="#{catBean.prepareDeleteCat(cat)}" class="btn btn-success me-2">
-                                        <i class="bi bi-cart-check-fill" />
-                                    </h:commandLink>
-                                </div>
-                            </h:form>
-                        </h:column>
+                            <h:dataTable class="table table-striped table-hover" value="#{shoppingCartBean.shoppingCart.cats}" var="cat">
+                            <h:column>
+                                <f:facet name="header">Name</f:facet>
+                                #{cat.name}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Price</f:facet>
+                                #{cat.price}
+                            </h:column>
+                            </h:dataTable>
+                            <h:column>
+                                <h:form class="row align-items-center">
+                                    <div class="col-sm-7">
+                                        <p style="font-weight: bold; text-decoration: double underline;">
+                                            Total Price:
+                                            <h:outputText value="#{shoppingCartBean.total()}">
+                                                <f:convertNumber pattern="#0.00" />
+                                            </h:outputText>€
+                                        </p>
+                                    </div>
+                                    <div class="col-auto">
+                                        <h:commandLink value="Buy Now!" action="#{catBean.prepareDeleteCat(cat)}" class="btn btn-success me-2">
+                                            <i class="bi bi-cart-check-fill" />
+                                        </h:commandLink>
+                                    </div>
+                                </h:form>
+                            </h:column>
                     </div>
                 </div>
             </div>
