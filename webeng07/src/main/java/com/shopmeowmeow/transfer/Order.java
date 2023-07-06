@@ -3,12 +3,16 @@ package com.shopmeowmeow.transfer;
 import com.shopmeowmeow.model.OrderPaymentMethod;
 import io.ebean.annotation.Length;
 import io.ebean.annotation.NotNull;
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.enterprise.context.SessionScoped;
+import jakarta.inject.Named;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "Orders")
-public class Order {
+public class Order implements Serializable {
     public Order() {
 
     }

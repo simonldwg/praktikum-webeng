@@ -7,7 +7,9 @@
         xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
         xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
         xmlns:f="http://xmlns.jcp.org/jsf/core"
-        xmlns:h="http://xmlns.jcp.org/jsf/html">
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:c="http://java.sun.com/jsp/jstl/core"
+>
 <h:body>
 
     <ui:composition template="layout.xhtml">
@@ -52,9 +54,11 @@
                     <h:column>
                         <div class="row align-items-center">
                             <div class="col-sm-7">
-                                <h:commandLink value="Checkout" action="goToCheckOut" class="btn btn-success me-2">
-                                    <i class="bi bi-cart-check-fill" />
-                                </h:commandLink>
+                                <c:if test="#{shoppingCartBean.shoppingCart.cats.size()>0}">
+                                    <h:commandLink value="Checkout" action="#{orderBean.prepareAddOrder()}" class="btn btn-success me-2">
+                                        <i class="bi bi-cart-check-fill" />
+                                    </h:commandLink>
+                                </c:if>
                                 <h:commandLink value="Reset cart" action="#{shoppingCartBean.abortShoppingProcess()}" class="btn btn-outline-danger me-2">
                                     <i class="bi bi-cart-x" />
                                 </h:commandLink>

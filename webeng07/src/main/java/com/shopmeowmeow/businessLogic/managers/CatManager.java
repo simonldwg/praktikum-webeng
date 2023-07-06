@@ -55,4 +55,10 @@ public class CatManager {
     public List<Cat> getCatsWhereSubstring(String attribute, String value) {
         return catDAO.getCatsWhereSubstring(attribute, value);
     }
+
+    public void deleteCats(List<Cat> toDelete) {
+        for(Cat c : toDelete) {
+            catDAO.delete(c);
+        }
+    }
 }

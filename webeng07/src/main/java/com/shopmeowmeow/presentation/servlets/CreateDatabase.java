@@ -98,8 +98,6 @@ public class CreateDatabase extends HttpServlet {
             catDAO.add(sarah);
             Cat doughnut = new Cat("Doughnut", "A poor, depressed but very cute cat in his midlife crisis.", 4, CatGender.MALE, CatColor.WHITE, CatHairstyle.SHORT, 179.95F);
             catDAO.add(doughnut);
-            Order order1 = new Order("Hans","Hansewitz","Hansstraße 42","Hansstadt","37495", "Hansekatze1, Hansekatze2", OrderPaymentMethod.CREDIT_CARD);
-            orderDAO.add(order1);
         }
     }
 
@@ -117,11 +115,6 @@ public class CreateDatabase extends HttpServlet {
             response.getWriter().println(c.getName());
             response.getWriter().println(c.getPrice());
             response.getWriter().println(c.getDescription());
-            response.getWriter().println();
-        }
-        for (Order o : orderDAO.getAll()) {
-            response.getWriter().println(o.getId());
-            response.getWriter().println(o.getFirstname());
             response.getWriter().println();
         }
     }

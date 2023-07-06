@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:jsf="http://xmlns.jcp.org/jsf"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+   <f:metadata>
+      <f:viewAction action="#{authorizationBean.checkLoggedIn()}" />
+   </f:metadata>
+</h:head>
+<h:body>
+   <ui:composition template="adminlayout.xhtml">
+      <ui:define name="admintitle">
+         Orders
+      </ui:define>
+      <ui:define name="adminheader">
+         <div class="col-sm-4"  id="logo">
+            <h1 class="display-5 fw-bolder">SHOPMEOWMEOW.COM</h1>
+         </div>
+         <ul class="nav nav-underline justify-content-center">
+            <li class="nav-item list-unstyled">
+               <h:link value="BACK TO DASHBOARD" styleClass="nav-link fs-5 fw-bold" outcome="admindashboard.xhtml"></h:link>
+            </li>
+         </ul>
+      </ui:define>
+      <ui:define name="admincontent">
+         <h1 class="fw-bolder text-primary mt-n1">/ORDERS</h1>
+         <h:form>
+            <h:dataTable class="table table-striped table-hover" value="#{orderBean.orders}" var="order">
+               <h:column>
+                  <f:facet name="header">First name</f:facet>
+                  #{order.firstname}
+               </h:column>
+               <h:column>
+                  <f:facet name="header">Last name</f:facet>
+                  #{order.lastname}
+               </h:column>
+               <h:column>
+                  <f:facet name="header">Address</f:facet>
+                  #{order.address}
+               </h:column>
+               <h:column>
+                  <f:facet name="header">City</f:facet>
+                  #{order.city}
+               </h:column>
+               <h:column>
+                  <f:facet name="header">ZIP</f:facet>
+                  #{order.zip}
+               </h:column>
+               <h:column>
+                  <f:facet name="header">Payment</f:facet>
+                  #{order.paymentMethod.displayName}
+               </h:column>
+               <h:column>
+                  <f:facet name="header">Ordered cats</f:facet>
+                  #{order.cats}
+               </h:column>
+            </h:dataTable>
+         </h:form>
+      </ui:define>
+      <ui:define name="footer">
+         <div class="col-sm-12" id="footer">
+            <ul class="nav nav-underline justify-content-center">
+               <p>copyright 2023 by us</p>
+            </ul>
+         </div>
+      </ui:define>
+   </ui:composition>
+
+</h:body>
+
+</html>

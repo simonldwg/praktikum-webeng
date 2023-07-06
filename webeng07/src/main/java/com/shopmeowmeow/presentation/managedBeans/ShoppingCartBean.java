@@ -7,6 +7,7 @@ import jakarta.enterprise.context.SessionScoped;
 import jakarta.inject.Named;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Named()
@@ -43,5 +44,8 @@ public class ShoppingCartBean implements Serializable {
     public String abortShoppingProcess() {
         shoppingCartManager.abortShoppingProcess(shoppingCart);
         return "";
+    }
+    public void clearCart() {
+        shoppingCart.setCats(new ArrayList<>());
     }
 }

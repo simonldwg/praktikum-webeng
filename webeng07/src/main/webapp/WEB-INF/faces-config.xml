@@ -42,6 +42,11 @@
             <redirect />
         </navigation-case>
         <navigation-case>
+            <from-outcome>goToOrders</from-outcome>
+            <to-view-id>/views/adminorders.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+        <navigation-case>
             <from-action>#{adminLoginBean.logout}</from-action>
             <from-outcome>logout</from-outcome>
             <to-view-id>/views/index.xhtml</to-view-id>
@@ -104,7 +109,7 @@
     <navigation-rule>
         <from-view-id>/views/cart.xhtml</from-view-id>
         <navigation-case>
-            <from-outcome>goToCheckOut</from-outcome>
+            <from-outcome>goToCheckout</from-outcome>
             <to-view-id>/views/checkout.xhtml</to-view-id>
             <redirect />
         </navigation-case>
