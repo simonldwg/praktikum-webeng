@@ -132,7 +132,6 @@ public class CatBean implements Serializable {
     }
 
     public List<Cat> getCatsWhereEquals(String attribute, Object value) {
-        System.out.println(value.getClass().getName());
         return catManager.getCatsWhereEquals(attribute, value);
     }
 
