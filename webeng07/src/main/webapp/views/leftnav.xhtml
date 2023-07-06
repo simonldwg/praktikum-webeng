@@ -26,7 +26,7 @@
                     <ui:repeat value="#{searchBean.searchResults}" var="cat">
                         <li class="list-group-item">
                             <h:form>
-                                <h:outputText value="#{cat.name}"></h:outputText>
+                                <a href="filtername.xhtml?name=#{cat.name}">#{cat.name}</a>
                             </h:form>
                         </li>
                     </ui:repeat>
