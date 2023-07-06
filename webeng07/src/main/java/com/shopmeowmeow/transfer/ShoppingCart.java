@@ -14,14 +14,6 @@ public class ShoppingCart {
     }
 
     private List<Cat> cats;
-    private float total;
-    public void setTotal(float total){
-        this.total = total;
-    }
-
-    public float getTotal() {
-        return this.total;
-    }
 
     public ShoppingCart() {
         cats = new ArrayList<>();

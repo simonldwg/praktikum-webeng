@@ -45,13 +45,13 @@ public class OrmCatDAO extends OrmDaoBase implements CatDAO {
         return filteredList != null && !filteredList.isEmpty();
     }
     public List<Cat> getMostRecent() {
-        return getDatabase().find(Cat.class).where().gt("addedAt", new Date(ZonedDateTime.of(LocalDateTime.now().minusDays(30), ZoneId.systemDefault()).toInstant().toEpochMilli())).order("added_at DESC").findList();
+        return getDatabase().find(Cat.class).where().eq("reserved", false).gt("addedAt", new Date(ZonedDateTime.of(LocalDateTime.now().minusDays(30), ZoneId.systemDefault()).toInstant().toEpochMilli())).order("added_at DESC").findList();
     }
 
     @Override
     public List<Cat> getCatsWhereEquals(String attribute, Object value) {
         System.out.println(value);
-        return getDatabase().find(Cat.class).where().eq(attribute, value).findList();
+        return getDatabase().find(Cat.class).where().eq("reserved", false).eq(attribute, value).findList();
     }
 
 }

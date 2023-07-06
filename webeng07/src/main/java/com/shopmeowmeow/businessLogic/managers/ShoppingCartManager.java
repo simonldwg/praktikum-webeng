@@ -3,6 +3,9 @@ package com.shopmeowmeow.businessLogic.managers;
 import com.shopmeowmeow.transfer.Cat;
 import com.shopmeowmeow.transfer.ShoppingCart;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class ShoppingCartManager {
 
@@ -33,6 +36,14 @@ public class ShoppingCartManager {
             total += c.getPrice();
         }
         return total;
+    }
+
+    public void abortShoppingProcess(ShoppingCart cart) {
+        var cats = cart.getCats();
+        for(Cat c : cats) {
+            catManager.free(c);
+        }
+        cart.setCats(new ArrayList<>());
     }
 
 }

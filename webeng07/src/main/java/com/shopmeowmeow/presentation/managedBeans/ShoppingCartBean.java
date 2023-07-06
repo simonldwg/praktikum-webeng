@@ -40,4 +40,8 @@ public class ShoppingCartBean implements Serializable {
     public float total() {
         return shoppingCartManager.total(this.shoppingCart);
     }
+    public String abortShoppingProcess() {
+        shoppingCartManager.abortShoppingProcess(shoppingCart);
+        return "";
+    }
 }
